@@ -38,6 +38,9 @@ const questions = [
     answer: "1. break",
   },
 ];
+
+
+
 var starter = document.getElementById("starter");
 var startQuizBtn = document.getElementById("startQuizBtn");
 var queContainer = document.getElementById("queContainer");
@@ -62,7 +65,11 @@ function showQuizQuestion() {
     quizContainer.innerHTML = `
       <h2 class="quiz-question">${question.questionText}</h2>
       <div class="quiz-options">
-        ${question.options.map((option) => `<button class="quiz-option">${option}</button>`).join("")}
+        ${question.options
+          .map(
+            (option) => `<button class="quiz-option">${option}</button>`
+          )
+          .join("")}
       </div>
       <hr>
     `;
@@ -100,7 +107,9 @@ function handleTimeout() {
   answerMessage.classList.add("answer-message");
   answerMessage.textContent = "Time's up!";
   quizContainer.appendChild(answerMessage);
-  options.forEach((option) => option.removeEventListener("click", checkAnswer));
+  options.forEach((option) =>
+    option.removeEventListener("click", checkAnswer)
+  );
   setTimeout(() => {
     currentQuestionIndex++;
     showQuizQuestion();
@@ -118,11 +127,12 @@ function checkAnswer(selectedOptionIndex, options) {
     score++;
   } else {
     answerMessage.textContent = "Incorrect!";
-    score--; // Decrement the score for incorrect answers
     timeLimit -= 10; // Deduct 10 seconds from the remaining time for incorrect answers
   }
   quizContainer.appendChild(answerMessage);
-  options.forEach((option) => option.removeEventListener("click", checkAnswer));
+  options.forEach((option) =>
+    option.removeEventListener("click", checkAnswer)
+  );
   setTimeout(() => {
     currentQuestionIndex++;
     if (currentQuestionIndex === questions.length) {
@@ -132,7 +142,6 @@ function checkAnswer(selectedOptionIndex, options) {
     } else {
       showQuizQuestion();
       resetCountdown(); // Start the countdown for the next question
-      
     }
   }, 1500);
 }
@@ -140,7 +149,15 @@ function checkAnswer(selectedOptionIndex, options) {
 function showQuizCompleted() {
   quizContainer.style.display = "none";
   quizCompletedContainer.style.display = "block";
-  quizCompletedContainer.textContent = `Quiz Completed! Your Score: ${score} out of ${questions.length}`;
+
+  // Calculate total time taken
+  const totalTimeTaken = timeLimit * questions.length - timer;
+
+  quizCompletedContainer.innerHTML = `
+    <h2>Quiz Completed!</h2>
+    <p>Your Score: ${score} out of ${questions.length}</p>
+    <p>Total Time Taken: ${totalTimeTaken} seconds</p>
+  `;
 }
 
 showQuizQuestion();
