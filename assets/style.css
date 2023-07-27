@@ -12,6 +12,10 @@ a{
   list-style-type: none;
    color: white;
    cursor: pointer;
+   font-size: 16px;
+}
+.timer{
+  font-size: 16px;
 }
 .main{
  display: flex;

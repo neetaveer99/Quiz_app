@@ -89,11 +89,17 @@ function startCountdown() {
     timerElement.textContent = `Time: ${timeLeft}s`;
     if (timeLeft > 0) {
       timeLeft--;
-    } else {
+    }
+    else if(timeLeft == 0){
+      showQuizCompleted();
+    }
+    else {
       clearInterval(timer);
       handleTimeout();
+     
     }
   }, 1000); // 1000 ms = 1 second
+  
 }
 
 function resetCountdown() {
@@ -161,73 +167,5 @@ function showQuizCompleted() {
 }
 
 showQuizQuestion();
-
-
-// var starter = document.getElementById("starter");
-// var startQuizBtn = document.getElementById("startQuizBtn");
-// var queContainer = document.getElementById("queContainer");
-
-// startQuizBtn.addEventListener("click", ()=>{
-//   starter.style.display="none";
-//   queContainer.style.display="block";
-// });
-
-// let currentQuestionIndex = 0;
-// let score = 0;
-
-// const quizContainer = document.getElementById("quiz");
-// const quizCompletedContainer = document.getElementById("quizCompleted");
-
-// function showQuizQuestion() {
-//   if (currentQuestionIndex < questions.length) {
-//     const question = questions[currentQuestionIndex];
-//     quizContainer.innerHTML = `
-//       <div class="quiz-question">${question.questionText}</div>
-//       <div class="quiz-options">
-//         ${question.options.map((option) => `<div class="quiz-option">${option}</div>`).join("")}
-//       </div>
-//     `;
-//     const options = document.querySelectorAll(".quiz-option");
-//     options.forEach((option, index) => {
-//       option.addEventListener("click", () => checkAnswer(index, options));
-//     });
-//   } else {
-//     showQuizCompleted();
-//   }
-// }
-
-// function checkAnswer(selectedOptionIndex, options) {
-//   const question = questions[currentQuestionIndex];
-//   const selectedOption = options[selectedOptionIndex];
-//   const answerMessage = document.createElement("div");
-//   answerMessage.classList.add("answer-message");
-//   if (question.answer === selectedOption.textContent) {
-//     answerMessage.textContent = "Correct!";
-//     score++;
-//   } else {
-//     answerMessage.textContent = "Incorrect!";
-//   }
-//   quizContainer.appendChild(answerMessage);
-//   options.forEach((option) => option.removeEventListener("click", checkAnswer));
-//   setTimeout(() => {
-//     currentQuestionIndex++;
-//     showQuizQuestion();
-//   }, 1500);
-// }
-
-// function showQuizCompleted() {
-//   quizContainer.style.display = "none";
-//   quizCompletedContainer.style.display = "block";
-//   quizCompletedContainer.textContent = `Quiz Completed! Your Score: ${score} out of ${questions.length}`;
-// }
-
-// showQuizQuestion();
-
-
-
-
-
-
-
 
 
