@@ -60,10 +60,11 @@ function showQuizQuestion() {
   if (currentQuestionIndex < questions.length) {
     const question = questions[currentQuestionIndex];
     quizContainer.innerHTML = `
-      <div class="quiz-question">${question.questionText}</div>
+      <h2 class="quiz-question">${question.questionText}</h2>
       <div class="quiz-options">
-        ${question.options.map((option) => `<div class="quiz-option">${option}</div>`).join("")}
+        ${question.options.map((option) => `<button class="quiz-option">${option}</button>`).join("")}
       </div>
+      <hr>
     `;
     const options = document.querySelectorAll(".quiz-option");
     options.forEach((option, index) => {
@@ -131,6 +132,7 @@ function checkAnswer(selectedOptionIndex, options) {
     } else {
       showQuizQuestion();
       resetCountdown(); // Start the countdown for the next question
+      
     }
   }, 1500);
 }

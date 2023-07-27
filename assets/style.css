@@ -1,84 +1,88 @@
 
 
 .head{
-    display: flex;
-    justify-content: space-between;
-    background-color: #218380;
-    padding: 10px 30px;
-    color: white;
+  display: flex;
+  justify-content: space-between;
+  background-color: #218380;
+  padding: 10px 30px;
+  color: white;
 }
- a{
-    text-decoration: none;
-    list-style-type: none;
-     color: white;
-     cursor: pointer;
+a{
+  text-decoration: none;
+  list-style-type: none;
+   color: white;
+   cursor: pointer;
 }
 .main{
-   display: flex;
-   justify-content: center;
-  align-items: center;
-  height: 500px;
+ display: flex;
+ justify-content: center;
+align-items: center;
+height: 500px;
 }
 .container{
-    width: 600px;
-    height: 200px;
-    border: 2px solid rgb(247, 234, 234);
-    padding: 40px;
-    border-radius: 20px;
-    box-shadow:5px 8px 5px 5px #dfdada;
+  width: 600px;
+  height: 280px;
+  border: 2px solid rgb(247, 234, 234);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow:5px 8px 5px 5px #dfdada;
 }
 button{
-    background-color:#218380 ;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    color: white;
-    cursor: pointer;
+  background-color:#218380 ;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
 }
 @media screen and (max-width:768px) {
-    .main{
-        height: 600px;
-    }
-    .container{
-        height: auto;
-        padding: 15px;
-        margin: 10px;
-       
-    }
+  .main{
+      height: 600px;
+  }
+  .container{
+      height: auto;
+      padding: 15px;
+      margin: 10px;
+     
+  }
 }
 
 
 #queContainer{
-  display: none;
+display: none;
 }
 /* .quiz {
-  display: none;
+display: none;
 } */
 
 .quiz-question {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 10px;
 }
 
 .quiz-options {
-  margin-top: 10px;
+margin-top: 10px;
 }
 
 .quiz-option {
-  margin-bottom: 5px;
-  cursor: pointer;
+margin-bottom: 5px;
+cursor: pointer;
+display: flex;
+width: 600px;
+font-size: 16px;
+
 }
 
 .quiz-completed {
-  display: none;
-  text-align: center;
-  font-size: 24px;
-  font-weight: bold;
+display: none;
+text-align: center;
+font-size: 24px;
+font-weight: bold;
 }
 
 .answer-message {
-  margin-top: 10px;
+margin-top: 10px;
 }
 
 
